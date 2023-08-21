@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.boot.im.service;
+package com.boot.im.service.processor;
 
 import cn.hutool.core.util.RandomUtil;
 import org.jim.core.ImChannelContext;
@@ -13,13 +13,18 @@ import org.jim.server.processor.login.LoginCmdProcessor;
 import org.jim.server.protocol.AbstractProtocolCmdProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.*;
 
 /**
  * @author WChao
  *
  */
+@Component
 public class LoginServiceProcessor extends AbstractProtocolCmdProcessor implements LoginCmdProcessor {
 
 	private Logger logger = LoggerFactory.getLogger(LoginServiceProcessor.class);
@@ -33,6 +38,9 @@ public class LoginServiceProcessor extends AbstractProtocolCmdProcessor implemen
 			"明", "远平", "克弱", "亦菲", "靓颖", "富城", "岳", "先觉", "牛", "阿狗", "阿猫", "辰", "蝴蝶", "文化", "冲之", "悟空", "行者", "悟净", "悟能", "观", "音", "乐天", "耀扬", "伊健", "炅", "娜", "春花", "秋香", "春香",
 			"大为", "如来", "佛祖", "科比", "罗斯", "詹姆屎", "科神", "科蜜", "库里", "卡特", "麦迪", "乔丹", "魔术师", "加索尔", "法码尔", "南斯", "伊哥", "杜兰特", "保罗", "杭州", "爱湘", "湘湘", "昕", "函", "鬼谷子", "膑", "荡",
 			"子家", "德利优视", "五方会谈", "来电话了", "轨迹", "超"};
+
+
+
 
 	/**
 	 * 根据用户名和密码获取用户
@@ -48,7 +56,6 @@ public class LoginServiceProcessor extends AbstractProtocolCmdProcessor implemen
 		User user = getUser(token);
 		user.setUserId(loginReqBody.getUserId());
 		// 根据用户名 + 密码获取用户对象
-
 
 		return user;
 	}

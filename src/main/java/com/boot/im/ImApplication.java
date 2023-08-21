@@ -3,7 +3,7 @@ package com.boot.im;
 import com.boot.im.command.DemoWsHandshakeProcessor;
 import com.boot.im.listener.ImDemoGroupListener;
 import com.boot.im.listener.ImDemoUserListener;
-import com.boot.im.service.LoginServiceProcessor;
+import com.boot.im.service.processor.LoginServiceProcessor;
 import org.jim.core.packets.Command;
 import org.jim.server.JimServer;
 import org.jim.server.command.CommandManager;
